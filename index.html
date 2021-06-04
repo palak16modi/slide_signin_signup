@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" and dir="Itr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validation Login Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bluebg">
+            <div class="box signin">
+                <h2>Already have an account ?</h2>
+                <button class="signinBtn">Sign in</button>
+            </div>
+            <div class="box signup">
+                <h2>Don't have an account ?</h2>
+                <button class="signupBtn">Sign up</button>
+            </div>
+        </div>
+        <div class="formB">
+            <div class="form signinform">
+                <form>
+                    <h3>Sign In</h3>
+                    <input type="text" placeholder="username" class="uname">
+                    <input type="password" placeholder="password" class="upass">
+                    <input type="submit" value="Login" onclick=validate() >
+                    <a href="#">forgot password?</a>
+                </form>
+            </div>
+
+            <div class="form signupform">
+                <form>
+                    <h3>Sign Up</h3>
+                    <input type="text" placeholder="username" class="regname">
+                    <input type="email" placeholder="example@gmail.com" class="regmail">
+                    <input type="password" placeholder="password" class="regpass">
+                    <input type="password" placeholder="confirm password" class="regpasscon">
+                    <input type="submit" value="register" onclick=regvalidate()>
+                </form>
+            </div>
+
+        </div>
+    </div>
+<script>
+    const signinbtn = document.querySelector('.signinBtn');
+    const signupbtn = document.querySelector('.signupBtn');
+    const formB = document.querySelector('.formB');
+    const body = document.querySelector('body');
+    signupbtn.onclick =  function(){
+        formB.classList.add('active')
+        body.classList.add('active')
+
+    }
+    signinbtn.onclick =  function(){
+        formB.classList.remove('active')
+        body.classList.remove('active')
+    }
+    function validate(){
+        alert("here");
+        const uname = document.querySelector('.uname');
+        const upass = document.querySelector('.upass');
+        if(uname.value=="" || uname.value.length < 6){
+            alert("Username not valid");
+        }
+        else if(upass.value=="" || upass.value.length < 8 || /\d/.test(upass.value)==false){
+            alert("invalid password");
+        }
+        else{
+            alert("Successful Login");
+            uname.value="";
+            upass.value="";
+        }
+    }
+
+    function regvalidate(){
+        const rname = document.querySelector('.regname');
+        const rmail = document.querySelector('.regmail');
+        const rpass = document.querySelector('.regpass');
+        const rpasscon = document.querySelector('.regpasscon');
+        if(rname.value==""){
+            alert("Username cannot be empty");
+        }
+        else if(rmail.value==""){
+            alert("Email cannot be empty");
+        }
+        else if(rpass.value==""){
+            alert("Password cannot be empty");
+        }
+        else if(rpasscon.value==""){
+            alert("Confirm email cannot be empty");
+        }
+        else if(rname.value.length < 6){
+            alert("Username should be of more than 8 characters");
+        }
+        else if(rpass.value!=rpasscon.value){
+            alert("Passwords don't match");
+        }
+        else if(rpass.value.length < 8){
+            alert("Password must be of 8 characters or more");
+        }
+        else if(/\d/.test(rpass.value)==false){
+            alert("password must contain digit");
+        }
+        else if(!rmail.value.endsWith("@gmail.com") && !(rmail.value.endsWith("@hotmail.com")) && (!rmail.value.endsWith("@rediffmail.com"))){
+            alert("Email not valid");
+        }
+        else{
+            alert("Successfully Registerd..!!!");
+            rname.value="";
+            rmail.value="";
+            rpass.value="";
+            rpasscon.value="";
+        }
+    }
+</script>
+
+<body>
+
+</html>

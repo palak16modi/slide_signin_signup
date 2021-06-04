@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(55, 55, 112);
+    transition: 0.5s;
+}
+body.active{
+    background: rgb(122, 49, 49);
+}
+.container{
+    height: 500px;
+    width: 800px;
+    position: relative;
+    margin: 20px;
+    background:rgba(255,255,255,0);
+}
+.bluebg{
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    height:420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+}
+.bluebg .box{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.bluebg .box h2{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.bluebg .box button{
+    padding: 10px 20px;
+    background: white;
+    color:black;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+.formB{
+    position: absolute;
+    top:0;
+    left:0;
+    width:50%;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+.formB .signinform{
+    transition-delay: 0.25s;
+}
+
+.formB.active{
+    left: 50%;
+}
+.formB .form{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+    align-items: center;
+    overflow: hidden;
+
+}
+.formB.active .signinform{
+    left: -100%;
+    transition-delay: 0s;
+}
+.formB .signupform{
+    left: 100%;
+}
+
+.formB.active .signupform{
+    left: 0;
+}
+
+.formB .form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formB .form form input{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    padding:10px;
+    outline: none;
+    border: 1px solid;
+    font-size: 16px;
+}
+
+.formB .signinform form h3{
+    font-size: 25px;
+    text-align: center;
+    margin: 10px;
+    color: rgb(55, 55, 112);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formB .signinform form input[type="submit"]{
+    background: rgb(55, 55, 112);
+    width: 40%;
+    cursor: pointer;
+    color: white;
+}
+.formB .signupform form h3{
+    color: rgb(122, 49, 49);
+}
+.formB .signupform form input[type="submit"]{
+    background:rgb(122, 49, 49);
+    color: white;
+    width: 40%;
+    cursor: pointer;
+}
+.formB .form form a{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 991px){
+    .container{
+        max-width: 400px;
+        height: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container .bluebg{
+        top: 0;
+        height: 100%; 
+    }
+    .formB{
+        width: 100%;
+        height: 500px;
+        top:0;
+        box-shadow: none;
+    }
+    .bluebg .box{
+        width: 100%;
+        position: absolute;
+        height: 150px;
+        bottom: 0;
+    }
+    .box.signin{
+        top:0;
+    }
+    .formB.active{
+        left:0;
+        top:150px;
+    }
+}
